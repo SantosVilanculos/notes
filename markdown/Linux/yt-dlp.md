@@ -1,10 +1,9 @@
 ## install
 
 ```sh
-wget "https://github.com/yt-dlp/yt-dlp/releases/download/2025.02.19/yt-dlp_linux" -O "./yt-dlp"
-
+LATEST_VERSION=$(curl -s "https://api.github.com/repos/yt-dlp/yt-dlp/releases/latest" | grep -Po '"tag_name": "\K[^"]*')
+wget "https://github.com/yt-dlp/yt-dlp/releases/download/${LATEST_VERSION}/yt-dlp_linux" -O "./yt-dlp"
 chmod +x "./yt-dlp"
-
 sudo mv "./yt-dlp" "/usr/local/bin/yt-dlp"
 ```
 
