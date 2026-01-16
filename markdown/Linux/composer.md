@@ -5,13 +5,12 @@
 ## install/update
 
 ```sh
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('composer-setup.php'); exit(1); }"
-php composer-setup.php --filename="composer"
-php -r "unlink('composer-setup.php');"
-
-sudo chmod +x "./composer"
-sudo mv "./composer" "/usr/local/bin/composer"
+TEMP_DIR=$(mktemp -d)
+LATEST_VERSION=$(curl -s "https://api.github.com/repos/composer/composer/releases/latest" | grep -Po '"tag_name": "\K[^"]*')
+wget "https://github.com/composer/composer/releases/download/${LATEST_VERSION}/composer.phar" -O "${TEMP_DIR}/composer.phar"
+sudo chmod +x "${TEMP_DIR}/composer.phar"
+sudo mv "${TEMP_DIR}/composer.phar" "/usr/local/bin/composer"
+rm -rf "${TEMP_DIR}"
 ```
 
 ## configuration
