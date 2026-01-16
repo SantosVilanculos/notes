@@ -26,6 +26,7 @@ RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
+EOF
 ```
 
 ## endpoint
