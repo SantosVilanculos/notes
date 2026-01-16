@@ -1,10 +1,13 @@
 ## install
 
 ```sh
-wget https://github.com/axllent/mailpit/releases/download/v1.21.1/mailpit-linux-amd64.tar.gz -O "./mailpit-linux-amd64.tar.gz"
-tar -xf ./mailpit-linux-amd64.tar.gz
-sudo mv ./mailpit /usr/local/bin
+TEMP_DIR=$(mktemp -d)
+LATEST_VERSION=$(curl -s "https://api.github.com/repos/axllent/mailpit/releases/latest" | grep -Po '"tag_name": "\K[^"]*')
+wget "https://github.com/axllent/mailpit/releases/download/${LATEST_VERSION}/mailpit-linux-amd64.tar.gz" -O "${TEMP_DIR}/mailpit-linux-amd64.tar.gz"
+tar -xf "${TEMP_DIR}/mailpit-linux-amd64.tar.gz" -C "${TEMP_DIR}"
+sudo mv "${TEMP_DIR}/mailpit" /usr/local/bin
 sudo chmod +x /usr/local/bin/mailpit
+rm -rf "${TEMP_DIR}"
 ```
 
 ```sh
