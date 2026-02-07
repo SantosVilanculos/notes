@@ -1,0 +1,1 @@
+To remove the IIS Windows page, you must uninstall the Internet Information Services feature. Open the Control Panel, navigate to Programs and Features > Turn Windows features on or off, uncheck "Internet Information Services," click OK, and restart your computer to apply the changes. 
