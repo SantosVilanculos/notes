@@ -43,6 +43,6 @@ fi
 ## python
 
 ```sh
-pyenv install 3.12.9
-pyenv global 3.12.9
+pyenv install 3
+pyenv global 3
 ```
