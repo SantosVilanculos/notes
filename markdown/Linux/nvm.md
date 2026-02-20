@@ -1,7 +1,8 @@
 ## install
 
 ```sh
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+LATEST_VERSION=$(curl -s "https://api.github.com/repos/nvm-sh/nvm/releases/latest" | grep -Po '"tag_name": "\K[^"]*')
+wget -qO- "https://raw.githubusercontent.com/nvm-sh/nvm/${LATEST_VERSION}/install.sh" | bash
 ```
 
 ## configuration
@@ -21,6 +22,6 @@ fi
 ## node
 
 ```sh
-nvm install 22
-nvm use 22
+nvm install --lts
+nvm use --lts
 ```
