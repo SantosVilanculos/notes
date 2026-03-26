@@ -72,12 +72,7 @@ sudo mariadb-secure-installation
 ## configuration
 
 ```sh
-sudo chown -R www-data:www-data /var/www/example.com
-sudo chmod -R 775 /var/www/example.com/bootstrap/cache /var/www/example.com/bootstrap/cache
-```
-
-```sh
-git clone <url> /var/www/example.com
+sudo cp ~/example.com /var/www/example.com
 
 cd /var/www/example.com
 
@@ -96,7 +91,10 @@ php artisan optimize
 ```
 
 ```sh
+sudo usermod -a -G www-data $USER
+
 sudo chown -R $USER:www-data storage bootstrap/cache
+
 sudo chmod -R 775 storage bootstrap/cache
 ```
 
@@ -114,6 +112,8 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/
 sudo unlink /etc/nginx/sites-enabled/default
 
 sudo vim /etc/nginx/sites-available/example.com
+
+sudo ln -s /etc/nginx/sites-available/example.com.conf /etc/nginx/sites-enabled/
 ```
 
 
