@@ -1,6 +1,12 @@
+## install
+
 ```sh
 curl https://frankenphp.dev/install.sh | sh
 ```
+
+## configuration
+
+in the root path your project place a file called `Caddyfile`, with the contents below:
 
 ```Caddyfile
 {
