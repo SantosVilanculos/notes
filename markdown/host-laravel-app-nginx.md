@@ -72,9 +72,8 @@ sudo mariadb-secure-installation
 ## configuration
 
 ```sh
-sudo usermod -aG www-data $USER
-sudo chown -R $USER:www-data /var/www
-sudo chmod -R 775 /var/www
+sudo chown -R www-data:www-data /var/www/example.com
+sudo chmod -R 775 /var/www/example.com/bootstrap/cache /var/www/example.com/bootstrap/cache
 ```
 
 ```sh
