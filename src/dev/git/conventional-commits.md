@@ -1,7 +1,7 @@
 **1**. **feat: Add user authentication**
 
 ```markdown
-feat: Add user authentication
+1. **feat: Add user authentication**
 
 - Implement login and registration functionality
 - Integrate with OAuth provider for social login
