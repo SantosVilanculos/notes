@@ -9,11 +9,5 @@ sudo apt-get install mysql-server
 ### password
 
 ```sh
-sudo mysql
-```
-
-```sql
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-FLUSH PRIVILEGES;
-EXIT;
+sudo mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'password'; FLUSH PRIVILEGES;"
 ```
