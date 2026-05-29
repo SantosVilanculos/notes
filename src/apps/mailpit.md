@@ -11,6 +11,10 @@ rm -rf "${TEMP_DIR}"
 ```
 
 ```sh
+sudo mkdir /var/lib/mailpit
+
+sudo chown www-data:www-data /var/lib/mailpit
+
 cat <<'EOF' | sudo tee /etc/systemd/system/mailpit.service
 [Unit]
 Description=An email testing tool capturing emails from your application during development
@@ -20,13 +24,15 @@ After=network.target
 Type=simple
 User=www-data
 Group=www-data
-ExecStart=/usr/local/bin/mailpit
+ExecStart=/usr/local/bin/mailpit -d /var/lib/mailpit/mailpit.db
 Restart=always
 RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
 EOF
+
+sudo systemctl enable --now mailpit
 ```
 
 ## endpoint
