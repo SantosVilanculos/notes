@@ -1,3 +1,3 @@
 ```sh
-sudo apt-aget install -y ttf-mscorefonts-installer
+sudo apt-get install -y ttf-mscorefonts-installer
 ```
